@@ -1,5 +1,5 @@
 import pytest
-from cart import to_usd
+from cart import to_usd, tax_rate
 
 def test_to_usd():
     result = to_usd(5)
@@ -11,7 +11,8 @@ def test_to_usd():
     result = to_usd(5.555444)
     assert result == "$5.56" #test rounding
 
-
+def test_tax_rate():
+    assert(tax_rate) == 0.06
 
 
  

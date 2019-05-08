@@ -1,6 +1,7 @@
 import datetime
 import csv
 
+tax_rate = 0.06
 #def find_product finction
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)
@@ -49,7 +50,7 @@ if __name__=="__main__":
 
 #Information Output*************************************************************
 #def receipt inputs
-    tax_rate = 0.06
+    
     transaction_time = datetime.datetime.now()
     Tax = (total_price* tax_rate)
     Total_Pay = total_price + Tax
