@@ -52,10 +52,10 @@ if __name__=="__main__":
 
 #Call the find_function
 
-for selected_id in selected_ids:
-    match_products = find_product(selected_id,products)
-    total_price = total_price + match_product["price"]
-
+    for selected_id in selected_ids:
+        match_product = find_product(selected_id,products)
+        total_price = total_price + match_product["price"]
+        print("- " + match_product["name"] + " " + "${0:.2f}".format(match_product["price"]))
 
 #Information Output*************************************************************
 
@@ -70,10 +70,8 @@ print("SELECTED PRODUCTS:           ")
 print("-----------------------------")
 
 #print(selected_ids)
-
-
+ 
   
-  print("- " + match_product["name"] + " " + "${0:.2f}".format(match_product["price"]))
 
 print("-----------------------------")
 print("SUB-TOTAL: ${0:.2f}".format(total_price))
