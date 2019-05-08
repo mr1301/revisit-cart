@@ -1,2 +1,6 @@
 import pytest
-from cart import to_usd, tax_rate, find_product
+from cart import to_usd
+
+def test_to_usd():
+    result = to_usd(5)
+    assert result == "4"
