@@ -1,8 +1,5 @@
 import datetime
 import csv
-#def few inputs
-tax_rate = 0.06
-transaction_time = datetime.datetime.now()
 
 #def find_product finction
 def to_usd(my_price):
@@ -55,30 +52,30 @@ if __name__=="__main__":
     for selected_id in selected_ids:
         match_product = find_product(selected_id,products)
         total_price = total_price + match_product["price"]
-        print("- " + match_product["name"] + " " + "${0:.2f}".format(match_product["price"]))
+        print("- " + match_product["name"] + " " + to_usd(match_product["price"]))
 
 #Information Output*************************************************************
+#def receipt inputs
+tax_rate = 0.06
+transaction_time = datetime.datetime.now()
+Tax = (total_price* tax_rate)
+Total_Pay = total_price + Tax
 
 print("                             ")
 print("                             ")
 print("-----------------------------")
 print("THE SOUP BOWL - GEORGETOWN   ")
 print("202-997-0229", "WWW.TSB.COM  ")
-print("TIME", now.strftime("%Y-%m-%d"), now.strftime("%H:%M:%S"), "AM")
+print("TIME", transaction_time.strftime("%Y-%m-%d"), transaction_time.strftime("%H:%M:%S"), "AM")
 print("-----------------------------")
 print("SELECTED PRODUCTS:           ")
 print("-----------------------------")
-
-#print(selected_ids)
  
-  
-
 print("-----------------------------")
-print("SUB-TOTAL: ${0:.2f}".format(total_price))
+print("SUB-TOTAL:" + to_usd(total_price))
 
-print("TOTAL-TAX: ${0:.2f}".format(Tax))
-Tax = (total_price* tax_rate)
-Total_Pay = total_price + Tax
+print("TOTAL-TAX:" + to_usd(Tax))
+
 print("TOTAL-PAY: ${0:.2f}".format(Total_Pay))
 print("-----------------------------")
 print("THANK YOU,", "SEE YOU AGAIN SOON")
