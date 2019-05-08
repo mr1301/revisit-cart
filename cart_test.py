@@ -3,4 +3,8 @@ from cart import to_usd
 
 def test_to_usd():
     result = to_usd(5)
-    assert result == "4"
+    assert result == "$5.00" #USD
+
+    result = to_usd(5.5)
+    assert result == "$5.50" #dec places
+ 
