@@ -5,8 +5,9 @@ tax_rate = 0.06
 
 #def time function
 transaction_time =datetime.datetime.now()
+print(type(transaction_time))
 def human_friendly_timestamp(x):
-    return x.strftime("%Y-%m-%d %H:%M:%S")
+    return x.strftime("%Y-%m-%d %H:%M")
 
 #def find_product finction
 def to_usd(my_price):
@@ -69,12 +70,14 @@ if __name__=="__main__":
     print("SELECTED PRODUCTS:           ")
     print("-----------------------------")
 #Call the find_function to get list
+ 
     for selected_id in selected_ids:
         match_product = find_product(selected_id,products)
         total_price = total_price + match_product["price"]
         print("- " + match_product["name"] + " " + to_usd(match_product["price"])) 
-    Tax = (total_price* tax_rate)
-    Total_Pay = total_price + Tax
+Tax = (total_price* tax_rate)
+Total_Pay = total_price + Tax
+    
     print("-----------------------------")
     print("SUB-TOTAL: " + to_usd(total_price))
     print("TOTAL-TAX: " + to_usd(Tax))

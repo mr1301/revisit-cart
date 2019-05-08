@@ -1,5 +1,10 @@
 import pytest
-from cart import to_usd, tax_rate, find_product
+from cart import to_usd, tax_rate, find_product, #human_friendly_timestamp, calc_total
+import datetime
+from datetime import datetime
+
+
+
 
 def test_to_usd():
     result = to_usd(5)
@@ -25,3 +30,11 @@ def test_find_product():
 
    with pytest.raises(IndexError):
        find_product("50",products)
+
+
+#date= datetime.datetime.now()
+
+#def test_human_friendly_timestamp():
+    #result = human_friendly_timestamp(date)
+   #assert result == "2019-05-08"
+    
