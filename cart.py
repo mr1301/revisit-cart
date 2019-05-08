@@ -1,10 +1,10 @@
 import datetime
 import csv
-
+#def few inputs
 tax_rate = 0.06
-today = datetime.date.today()
-now = datetime.datetime.now()
+transaction_time = datetime.datetime.now()
 
+#def find_product finction
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)
 
@@ -38,7 +38,7 @@ if __name__=="__main__":
         {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
     ] 
 # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
-#Information input
+#Information input from user
 
     total_price = 0
     selected_ids = [] 
@@ -50,7 +50,14 @@ if __name__=="__main__":
         else:
             selected_ids.append(selected_id)
 
-#******************Information Output*************************************************************
+#Call the find_function
+
+for selected_id in selected_ids:
+    match_products = find_product(selected_id,products)
+    total_price = total_price + match_product["price"]
+
+
+#Information Output*************************************************************
 
 print("                             ")
 print("                             ")
@@ -63,10 +70,9 @@ print("SELECTED PRODUCTS:           ")
 print("-----------------------------")
 
 #print(selected_ids)
-for selected_id in selected_ids:
-  match_products = [p for p in products if str(p["id"]) == str(selected_id)]
-  match_product = match_products[0]
-  total_price = total_price + match_product["price"]
+
+
+  
   print("- " + match_product["name"] + " " + "${0:.2f}".format(match_product["price"]))
 
 print("-----------------------------")
