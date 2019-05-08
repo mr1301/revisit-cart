@@ -2,6 +2,11 @@ import datetime
 import csv
 
 tax_rate = 0.06
+transaction_time =datetime.datetime.now()
+def human_friendly_timestamp(x):
+    return x.strftime("%Y-%m-%d %H:%M:%S")
+
+breakpoint
 #def find_product finction
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)
@@ -51,7 +56,7 @@ if __name__=="__main__":
 #Information Output*************************************************************
 #def receipt inputs
     
-    transaction_time = datetime.datetime.now()
+   
     Tax = (total_price* tax_rate)
     Total_Pay = total_price + Tax
 
@@ -60,7 +65,7 @@ if __name__=="__main__":
     print("-----------------------------")
     print("THE SOUP BOWL - GEORGETOWN   ")
     print("202-997-0229", "WWW.TSB.COM  ")
-    print("TIME", transaction_time.strftime("%Y-%m-%d"), transaction_time.strftime("%H:%M:%S"), "AM")
+    print("TIME: " + human_friendly_timestamp(transaction_time))
     print("-----------------------------")
     print("SELECTED PRODUCTS:           ")
     print("-----------------------------")

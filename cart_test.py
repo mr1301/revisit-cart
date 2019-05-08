@@ -22,3 +22,6 @@ def test_find_product():
     ]
    match_product = find_product("2",products)
    assert match_product["department"] == "pantry"
+
+   with pytest.raises(IndexError):
+       find_product("50",products)
