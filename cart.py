@@ -47,13 +47,6 @@ if __name__=="__main__":
         else:
             selected_ids.append(selected_id)
 
-#Call the find_function
-
-    for selected_id in selected_ids:
-        match_product = find_product(selected_id,products)
-        total_price = total_price + match_product["price"]
-        print("- " + match_product["name"] + " " + to_usd(match_product["price"]))
-
 #Information Output*************************************************************
 #def receipt inputs
 tax_rate = 0.06
@@ -61,7 +54,7 @@ transaction_time = datetime.datetime.now()
 Tax = (total_price* tax_rate)
 Total_Pay = total_price + Tax
 
-print("                             ")
+
 print("                             ")
 print("-----------------------------")
 print("THE SOUP BOWL - GEORGETOWN   ")
@@ -70,13 +63,15 @@ print("TIME", transaction_time.strftime("%Y-%m-%d"), transaction_time.strftime("
 print("-----------------------------")
 print("SELECTED PRODUCTS:           ")
 print("-----------------------------")
- 
+#Call the find_function to get list
+    for selected_id in selected_ids:
+        match_product = find_product(selected_id,products)
+        total_price = total_price + match_product["price"]
+        print("- " + match_product["name"] + " " + to_usd(match_product["price"])) 
 print("-----------------------------")
-print("SUB-TOTAL:" + to_usd(total_price))
-
-print("TOTAL-TAX:" + to_usd(Tax))
-
-print("TOTAL-PAY: ${0:.2f}".format(Total_Pay))
+print("SUB-TOTAL: " + to_usd(total_price))
+print("TOTAL-TAX: " + to_usd(Tax))
+print("TOTAL-PAY: " + to_usd(Total_Pay))
 print("-----------------------------")
 print("THANK YOU,", "SEE YOU AGAIN SOON")
 print("-----------------------------")
