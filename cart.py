@@ -1,13 +1,13 @@
 import datetime
 import csv
 
+# credits: https://github.com/s2t2/shopping-cart-screencast/pull/2/files
 tax_rate = 0.06
 
 #def time function
 transaction_time =datetime.datetime.now()
-print(type(transaction_time))
 def human_friendly_timestamp(x):
-    return x.strftime("%Y-%m-%d %H:%M")
+    return x.strftime("%Y-%m-%d") #%H:%M
 
 #def find_product finction
 def to_usd(my_price):
@@ -58,9 +58,6 @@ if __name__=="__main__":
 #Information Output*************************************************************
 #def receipt inputs
     
-   
-    
-
     print("                             ")
     print("-----------------------------")
     print("THE SOUP BOWL - GEORGETOWN   ")
@@ -75,9 +72,8 @@ if __name__=="__main__":
         match_product = find_product(selected_id,products)
         total_price = total_price + match_product["price"]
         print("- " + match_product["name"] + " " + to_usd(match_product["price"])) 
-Tax = (total_price* tax_rate)
-Total_Pay = total_price + Tax
-    
+    Tax = (total_price* tax_rate)
+    Total_Pay = total_price + Tax
     print("-----------------------------")
     print("SUB-TOTAL: " + to_usd(total_price))
     print("TOTAL-TAX: " + to_usd(Tax))
@@ -85,3 +81,20 @@ Total_Pay = total_price + Tax
     print("-----------------------------")
     print("THANK YOU,", "SEE YOU AGAIN SOON")
     print("-----------------------------")
+
+    
+ #for testing price calculation   
+def calc_total_price(x):
+    selected_products = [
+        {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
+        {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
+        {"id":3, "name": "Robust Golden Unsweetened Oolong Tea", "department": "beverages", "aisle": "tea", "price": 2.49}
+        ]
+
+    total_p = x
+
+    p_list = [item["price"] for item in selected_products]
+    total= sum(p_list) + total_p
+    print(total)
+
+#calc_total_price()
