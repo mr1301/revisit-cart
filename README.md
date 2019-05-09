@@ -30,7 +30,7 @@ Copyright
 This program is licensed under the MIT license, see lincese file for reference
 
 Trouble shooting & known bugs
-
+All essential components for functionality where automatically tested. automatic date testing was limited because the timestamp uses current date & time, meaning asserting would be difficult. Date tests where performed manually.
 
 Author
 Mercy Radithupa
